@@ -159,7 +159,8 @@ def webhook():
     return "OK", 200
 
 
+
 def start_bot():
     bot.remove_webhook()
-    bot.set_webhook(url=f"{WEBHOOK_URL}")
+    bot.set_webhook(url=f"{os.getenv("WEBHOOK_URL")}")
     app.run(host="0.0.0.0", port=8080, use_reloader=True)
