@@ -1,1 +1,0 @@
-alias ngrok-start='ngrok http --url=cannon-uncurious-yearly.ngrok-free.dev 8080'

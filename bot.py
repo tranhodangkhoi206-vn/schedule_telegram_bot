@@ -161,5 +161,5 @@ def webhook():
 
 def start_bot():
     bot.remove_webhook()
-    bot.set_webhook(url="https://cannon-uncurious-yearly.ngrok-free.dev/webhook")
+    bot.set_webhook(url=f"{WEBHOOK_URL}")
     app.run(host="0.0.0.0", port=8080, use_reloader=True)
