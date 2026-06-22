@@ -151,15 +151,14 @@ def read_file():
         data = f.read()
     return data
 
-
+#%%
 def check_date_exist(date_check: date):
     date_check_str = date_check.strftime("%d/%m/%Y")
-    schedule = read_file()
-    if not schedule:
-        write_file(get_result(date_check_str))
-        return
-    schedule = json.loads(schedule)
-    for i in schedule:
-        if date_check_str != i["ngay"]:
-            write_file(get_result(date_check_str))
-            break
+    schedule = json.loads(read_file()) if read_file() else {}
+    schedule_exist = [i for i in schedule if i["ngay"] == date_check_str]
+    if not schedule_exist:
+        result = get_result(date_check_str)
+        write_file(result)
+    return json.loads(read_file())
+
+# %%
